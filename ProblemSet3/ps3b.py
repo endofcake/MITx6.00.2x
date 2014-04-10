@@ -181,7 +181,7 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
     clearProb: Maximum clearance probability (a float between 0-1)
     numTrials: number of simulation runs to execute (an integer)
     """
-    steps = 30
+    steps = 300
     results = [0 for x in range(steps)]
     def infect(numViruses, maxBirthProb, clearProb):
         viruses = []
@@ -200,6 +200,12 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
 
     processed = [results[x] / numTrials for x in range(steps)]
     print(processed)
+    pylab.plot(processed, label = 'Mean virus population')
+    pylab.title('Mean virus population')
+    pylab.xlabel('Elapsed time steps')
+    pylab.ylabel('Average size of the virus population in the patient')
+    pylab.legend(loc = 'lower right')
+    pylab.show()
 
 
 
