@@ -35,20 +35,21 @@ class SimpleVirus(object):
         maxBirthProb: Maximum reproduction probability (a float between 0-1)        
         clearProb: Maximum clearance probability (a float between 0-1).
         """
-
-        # TODO
+        self.maxBirthProb = maxBirthProb
+        self.clearProb = clearProb
+        #random.seed(1)
 
     def getMaxBirthProb(self):
         """
         Returns the max birth probability.
         """
-        # TODO
+        return self.maxBirthProb
 
     def getClearProb(self):
         """
         Returns the clear probability.
         """
-        # TODO
+        return self.clearProb
 
     def doesClear(self):
         """ Stochastically determines whether this virus particle is cleared from the
@@ -56,17 +57,16 @@ class SimpleVirus(object):
         returns: True with probability self.getClearProb and otherwise returns
         False.
         """
+        chance = random.random()
+        return chance < self.clearProb
 
-        # TODO
-
-    
     def reproduce(self, popDensity):
         """
         Stochastically determines whether this virus particle reproduces at a
         time step. Called by the update() method in the Patient and
         TreatedPatient classes. The virus particle reproduces with probability
         self.maxBirthProb * (1 - popDensity).
-        
+       
         If this virus particle reproduces, then reproduce() creates and returns
         the instance of the offspring SimpleVirus (which has the same
         maxBirthProb and clearProb values as its parent).         
@@ -78,9 +78,14 @@ class SimpleVirus(object):
         offspring of this virus particle. The child should have the same
         maxBirthProb and clearProb values as this virus. Raises a
         NoChildException if this virus particle does not reproduce.               
-        """
+        """        
+        chance = random.random()
+        assert popDensity <= 1
 
-        # TODO
+        if chance < self.maxBirthProb * (1 - popDensity):
+            return SimpleVirus(self.maxBirthProb, self.clearProb)
+        else:
+            raise NoChildException
 
 
 
@@ -100,21 +105,21 @@ class Patient(object):
 
         maxPop: the maximum virus population for this patient (an integer)
         """
-
-        # TODO
+        self.viruses = viruses
+        self.maxPop = maxPop
 
     def getViruses(self):
         """
         Returns the viruses in this Patient.
         """
-        # TODO
+        return self.viruses
 
 
     def getMaxPop(self):
         """
         Returns the max population.
         """
-        # TODO
+        return self.maxPop
 
 
     def getTotalPop(self):
@@ -122,8 +127,7 @@ class Patient(object):
         Gets the size of the current total virus population. 
         returns: The total virus population (an integer)
         """
-
-        # TODO        
+        return len(self.viruses)      
 
 
     def update(self):
@@ -144,10 +148,20 @@ class Patient(object):
         returns: The total virus population at the end of the update (an
         integer)
         """
+        def reproduction_chance():
+            return (self.getTotalPop() * 1.0)/ self.getMaxPop()
+        
+        virii = self.viruses[:] # helper
+        for vir in self.viruses:
+            if vir.doesClear():
+                virii.remove(vir)
 
-        # TODO
-
-
+        self.viruses = virii[:]
+        for vir in virii:
+            try:
+                self.viruses.append(vir.reproduce(reproduction_chance()))
+            except NoChildException, e:
+                pass
 
 #
 # PROBLEM 3
@@ -167,8 +181,25 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
     clearProb: Maximum clearance probability (a float between 0-1)
     numTrials: number of simulation runs to execute (an integer)
     """
+    steps = 30
+    results = [0 for x in range(steps)]
+    def infect(numViruses, maxBirthProb, clearProb):
+        viruses = []
+        for i in range(numViruses):
+            viruses.append(SimpleVirus(maxBirthProb, clearProb))
+        return viruses
 
-    # TODO
+    for i in range(numTrials):
+        p = Patient(infect(numViruses, maxBirthProb, clearProb), maxPop)
+        round = 0
+
+        while round < steps:
+            p.update()
+            results[round] += p.getTotalPop()
+            round += 1
+
+    processed = [results[x] / numTrials for x in range(steps)]
+    print(processed)
 
 
 
