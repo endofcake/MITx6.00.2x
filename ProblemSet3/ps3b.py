@@ -2,7 +2,7 @@
 
 import numpy
 import random
-import pylab
+#import pylab
 
 ''' 
 Begin helper code
@@ -262,7 +262,7 @@ class ResistantVirus(SimpleVirus):
         returns: True if this virus instance is resistant to the drug, False
         otherwise.
         """
-        return self.resistances[drug]
+        return self.resistances.get(drug, False)
 
 
     def reproduce(self, popDensity, activeDrugs):
@@ -314,34 +314,35 @@ class ResistantVirus(SimpleVirus):
 
         def define_resistance(activeDrugs):      
             for drug in activeDrugs:
-                if drug not in self.resistances:
+                if not self.isResistantTo(drug):
                     return False
             return True
 
         def mutate(resistances, mutProb):
             mutation = {}
-            mut_chance = random.random()
 
             for drug in resistances:
-                if drug:
-                    if mut_chance < (1 - mutProb):
-                        mutation[drug] = True
+                mut_chance = random.random()
+                if resistances[drug] == True:
+                    if mut_chance <= (1 - mutProb):
+                        mutation[drug] = self.resistances[drug]
                     else:
-                        mutation[drug] = False
+                        mutation[drug] = not self.resistances[drug]
                 else:
-                    if mut_chance > (1 - mutProb):
-                        mutation[drug] = True
+                    if mut_chance < mutProb:
+                        mutation[drug] = not self.resistances[drug]
                     else:
-                        mutation[drug] = False
+                        mutation[drug] = self.resistances[drug]
             return mutation            
 
         is_resistant = define_resistance(activeDrugs)
 
-        if not is_resistant and chance < self.maxBirthProb * (1 - popDensity):
+        if is_resistant and chance < self.maxBirthProb * (1 - popDensity):
             return ResistantVirus(\
                 maxBirthProb = self.maxBirthProb,\
                 clearProb = self.clearProb,\
-                mutProb = self.mutProb)
+                resistances = mutate(self.getResistances(), self.getMutProb()),\
+                mutProb = self.getMutProb())
         else:
             raise NoChildException
 
@@ -364,9 +365,8 @@ class TreatedPatient(Patient):
 
         maxPop: The  maximum virus population for this patient (an integer)
         """
-
-        # TODO
-
+        Patient.__init__(self, viruses, maxPop)
+        self.drugs = []
 
     def addPrescription(self, newDrug):
         """
@@ -378,9 +378,8 @@ class TreatedPatient(Patient):
 
         postcondition: The list of drugs being administered to a patient is updated
         """
-
-        # TODO
-
+        if newDrug not in self.drugs:
+            self.drugs.append(newDrug)
 
     def getPrescriptions(self):
         """
@@ -389,9 +388,7 @@ class TreatedPatient(Patient):
         returns: The list of drug names (strings) being administered to this
         patient.
         """
-
-        # TODO
-
+        return self.drugs[:]
 
     def getResistPop(self, drugResist):
         """
@@ -404,9 +401,17 @@ class TreatedPatient(Patient):
         returns: The population of viruses (an integer) with resistances to all
         drugs in the drugResist list.
         """
+        count = 0
+        for virus in self.viruses:
+            resistant = True
+            for drug in drugResist:
+                if not virus.isResistantTo(drug):
+                    resistant = False
+                    break
 
-        # TODO
-
+            if resistant:
+                count += 1
+        return count
 
     def update(self):
         """
@@ -428,11 +433,22 @@ class TreatedPatient(Patient):
         returns: The total virus population at the end of the update (an
         integer)
         """
+        def reproduction_chance():
+            return (self.getTotalPop() * 1.0)/ self.getMaxPop()
+        
+        virii = self.viruses[:] # helper
+        for vir in self.viruses:
+            if vir.doesClear():
+                virii.remove(vir)
 
-        # TODO
-
-
-
+        self.viruses = virii[:]
+        for vir in virii:
+            try:
+                self.viruses.append(\
+                    vir.reproduce(reproduction_chance(), self.getPrescriptions()))
+            except NoChildException, e:
+                pass
+        return self.getTotalPop()
 #
 # PROBLEM 5
 #
