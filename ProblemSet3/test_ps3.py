@@ -4,7 +4,7 @@ numViruses = 100
 maxPop = 1000
 maxBirthProb = 0.99
 clearProb = 0.05
-numTrials = 30
+numTrials = 10
 
 mutProb = 0.5
 popDensity = 0.1
@@ -69,7 +69,14 @@ def test_untreatable_patient():
 
 	print(patient.getResistPop(patient.getPrescriptions()))
 
+def test_simulation_drug():
+	processed_reg, processed_resist = simulationWithDrug(numViruses, maxPop, maxBirthProb, \
+		clearProb, resistances, mutProb, numTrials)
+
+	print(processed_reg, processed_resist)
 #test_negative_mutability()
 #test_positive_mutability()
 #test_treated_patient()
-test_untreatable_patient()
+#test_untreatable_patient()
+test_simulation_drug()
+

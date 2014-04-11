@@ -182,7 +182,7 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
     numTrials: number of simulation runs to execute (an integer)
     """
     steps = 300
-    results = [0 for x in range(steps)]
+    reg_virus = [0 for x in range(steps)]
     def infect(numViruses, maxBirthProb, clearProb):
         viruses = []
         for i in range(numViruses):
@@ -195,10 +195,10 @@ def simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
 
         while round < steps:
             p.update()
-            results[round] += p.getTotalPop()
+            reg_virus[round] += p.getTotalPop()
             round += 1
 
-    processed = [results[x] / numTrials for x in range(steps)]
+    processed = [reg_virus[x] / numTrials for x in range(steps)]
     print(processed)
     pylab.plot(processed, label = 'Mean virus population')
     pylab.title('Mean virus population')
@@ -475,4 +475,52 @@ def simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,
     
     """
 
-    # TODO
+    steps = 300
+    reg_virus = [0 for x in range(steps)]
+    resistant_virus = [0 for x in range(steps)]
+
+    def infect(numViruses, maxBirthProb, clearProb, resistances, mutProb):
+        viruses = []
+        for i in range(numViruses):
+            viruses.append(ResistantVirus(maxBirthProb, clearProb,\
+                resistances, mutProb))
+        return viruses
+
+    for i in range(numTrials):
+        p = TreatedPatient(infect(\
+            numViruses, maxBirthProb, clearProb, resistances, mutProb\
+            ), maxPop)
+        round = 0
+
+        while round < steps / 2:
+            p.update()
+            reg_virus[round] += p.getTotalPop()
+            round += 1
+
+        # add prescription and repeat
+        p.addPrescription('guttagonol')
+        while round < steps:
+            p.update()
+            resistant_virus[round] += p.getResistPop(['guttagonol'])
+            round += 1
+
+    processed_reg = [reg_virus[x]  * 1.0/ numTrials for x in range(steps)]
+    processed_resist = [(resistant_virus[x] * 1.0) / numTrials for x in range(steps)]
+    return processed_reg, processed_resist
+
+"""
+    pylab.plot(processed_reg, label = 'Mean virus population')
+    pylab.title('Mean virus population')
+    pylab.xlabel('Elapsed time steps')
+    pylab.ylabel('Average size of the virus population in the patient')
+    pylab.legend(loc = 'lower right')
+    pylab.show()
+
+    pylab.plot(processed_resist, label = 'Mean virus population')
+    pylab.title('Mean virus population')
+    pylab.xlabel('Elapsed time steps')
+    pylab.ylabel('Average size of the virus population in the patient')
+    pylab.legend(loc = 'lower right')
+    pylab.show()
+    """
+
