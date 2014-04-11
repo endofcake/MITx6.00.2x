@@ -1,0 +1,598 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mut",
+				"mut_chance"
+			],
+			[
+				"re",
+				"resistances"
+			],
+			[
+				"def",
+				"define_resistance"
+			],
+			[
+				"resi",
+				"resistant"
+			],
+			[
+				"act",
+				"activeDrugs"
+			],
+			[
+				"resistanc",
+				"resistances"
+			],
+			[
+				"retu",
+				"return"
+			],
+			[
+				"mu",
+				"mutProb"
+			],
+			[
+				"e",
+				"environment"
+			],
+			[
+				"site",
+				"site_environment"
+			],
+			[
+				"site_",
+				"site_dict"
+			],
+			[
+				"p",
+				"parts"
+			],
+			[
+				"ba",
+				"batch_import_logs"
+			],
+			[
+				"pro",
+				"processed_proxy_logs"
+			],
+			[
+				"li",
+				"line"
+			],
+			[
+				"lis",
+				"listdir"
+			],
+			[
+				"director",
+				"directories"
+			],
+			[
+				"pare",
+				"parent_list"
+			],
+			[
+				"direc",
+				"directories"
+			],
+			[
+				"dir",
+				"dir_set"
+			],
+			[
+				"par",
+				"parent_list"
+			],
+			[
+				"so",
+				"sorted_list"
+			],
+			[
+				"tra",
+				"traffic_regex"
+			],
+			[
+				"proc",
+				"process_log"
+			],
+			[
+				"agg",
+				"aggregated_data"
+			],
+			[
+				"da",
+				"date"
+			],
+			[
+				"raw",
+				"raw_date"
+			],
+			[
+				"fi",
+				"filename"
+			],
+			[
+				"che",
+				"check_path"
+			],
+			[
+				"v",
+				"values"
+			],
+			[
+				"ro",
+				"rowcount"
+			],
+			[
+				"lo",
+				"logdate"
+			],
+			[
+				"s",
+				"strftime  (function)"
+			],
+			[
+				"t",
+				"timestamp"
+			],
+			[
+				"in",
+				"ins	statement"
+			],
+			[
+				"si",
+				"site_db"
+			],
+			[
+				"ins",
+				"insert	function"
+			],
+			[
+				"cre",
+				"create_all	function"
+			],
+			[
+				"Me",
+				"MetaData	import"
+			],
+			[
+				"dest",
+				"dest_conn	statement"
+			],
+			[
+				"u",
+				"url"
+			],
+			[
+				"db",
+				"dbname"
+			],
+			[
+				"dbp",
+				"dbport	statement"
+			],
+			[
+				"co",
+				"connection_string	statement"
+			],
+			[
+				"get",
+				"get_credentials	function"
+			],
+			[
+				"va",
+				"vacuum_cost_limit	statement"
+			],
+			[
+				"ja",
+				"jade_start"
+			],
+			[
+				"am",
+				"amber_start"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ps3b.py",
+			"settings":
+			{
+				"buffer_size": 16052,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from ps3b import *\n\nnumViruses = 100\nmaxPop = 1000\nmaxBirthProb = 0.99\nclearProb = 0.05\nnumTrials = 30\n\nmutProb = 0.5\npopDensity = 0.1\n\ndef test_simple_virus():\n	simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb, numTrials)\n\ndef test_resistant_virus():\n	resistances = {'guttagonol':False, 'srinol':False}\n	active_drugs = {'guttagonol':False, 'srinol':True}\n\n	virus = ResistantVirus(1.0, 0.0, {\"drug1\": True}, 0.0)\n\n	virii = [virus]\n\n	for i in range(5):\n		for vir in virii:\n			try:\n				v = vir.reproduce(popDensity, active_drugs)\n				print(v.getResistances())\n			except NoChildException:\n				pass\n\n\ndef update(total_pop, max_pop):        \n        def reproduction_chance():\n            return (total_pop * 1.0)/ max_pop\n        \n        virii = self.viruses[:] # helper\n        for vir in self.viruses:\n            if vir.doesClear():\n                virii.remove(vir)\n\n        self.viruses = virii[:]\n        for vir in virii:\n            try:\n                self.viruses.append(vir.reproduce(reproduction_chance()))\n            except NoChildException, e:\n                pass\n\ntest_resistant_virus()",
+			"file": "test_ps3.py",
+			"file_size": 654,
+			"file_write_time": 130416708268849145,
+			"settings":
+			{
+				"buffer_size": 1118,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"nex",
+				"SublimeLint: Next Error"
+			],
+			[
+				"lin",
+				"SublimeLint: Next Error"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Anaconda: Enable linting on this file"
+			],
+			[
+				"linter",
+				"Anaconda: Next lint error"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"sn",
+				"Snippet: Create Schema"
+			],
+			[
+				"snip",
+				"Snippet: Create Table"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 222.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"1+1",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/alexanders/container/tks/2014-04.tks",
+		"/home/alexanders/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/alexanders/git/moodle-stats/test_db_connect.pu",
+		"/home/alexanders/git/moodle-stats/stash.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Pylinter.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Pylinter/Pylinter.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/SublimeREPL.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/home/alexanders/git/moodle-stats/test.py",
+		"/home/alexanders/git/python-requests-test/bottle_test.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/alexanders/git/moodle-stats/rrd_import.py",
+		"/var/log/sitelogs/acckineo-prod-moodle/access.log-20140404",
+		"/home/alexanders/git/python-requests-test/matplotlib_test.py",
+		"/home/alexanders/git/moodle-stats/moodle_stats.py",
+		"/home/alexanders/git/moodle-stats/timestamp.py",
+		"/home/alexanders/container/tks/march31.txt",
+		"/home/alexanders/git/moodle-audit/Moodle/moodleaudit-receiver.pl",
+		"/home/alexanders/git/moodle-audit/Moodle/Output/YAMLMail.pm",
+		"/home/alexanders/git/moodle-audit/Moodle/audit.pl",
+		"/home/alexanders/git/moodle-audit/Moodle/Plugin/Logs.pm",
+		"/home/alexanders/git/moodle-stats/testdata/result.yaml",
+		"/home/alexanders/rrdtool/accordo.xml",
+		"/home/alexanders/git/moodle-stats/sql/site_environment.sql",
+		"/home/alexanders/git/moodle-stats/sql/cluster.sql",
+		"/home/alexanders/rrdtool/rrd-data/acc.xml",
+		"/home/alexanders/rrdtool/rrd-data/accordo.xml",
+		"/home/alexanders/rrdtool/acc.xml",
+		"/home/alexanders/rrdtool/accordo.totara.net.rrd",
+		"/home/alexanders/git/moodle-stats/moodle-stats.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/alexanders/python/parse_logs_test.py",
+		"/home/alexanders/git/tango_with_django_project/rango/models.py",
+		"/home/alexanders/bin/install-depot-multisystem.sh",
+		"/var/lib/postgresql/scripts/postgres_vacuum.py",
+		"/home/alexanders/git/reveal.js/index.html",
+		"/home/alexanders/bin/deck.js-latest/boilerplate.html",
+		"/home/alexanders/.config/terminator/config",
+		"/home/alexanders/workbench/Pollster/polls/models.py",
+		"/home/alexanders/postgres/results.csv",
+		"/home/alexanders/bin/gems",
+		"/home/alexanders/postgres/results.txt",
+		"/home/alexanders/.ssh/config",
+		"/home/alexanders/bin/jewels",
+		"/home/alexanders/bin/colours",
+		"/home/alexanders/SQL/nf_create.sql",
+		"/home/alexanders/SQL/zzz.sql",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/alexanders/SQL/foo.sql"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"site",
+			"site_environment",
+			"site",
+			"*",
+			"path",
+			"batch_import_logs",
+			"entry",
+			"dirlist",
+			"path",
+			"raw",
+			"file",
+			"data",
+			"dump",
+			"file",
+			"data",
+			"rrd_files",
+			"files",
+			"rrd_location",
+			"result",
+			"daily_stats_view",
+			"1364428800",
+			"acckineo-prod-moodle",
+			"get_credentials",
+			"none",
+			"credentials_list",
+			"dbhome",
+			"10000",
+			"3",
+			"\n:#",
+			"solarized",
+			"      [[",
+			"sapphire",
+			"diamond",
+			"ruby",
+			"sapphire_start",
+			"amber",
+			"sapphire",
+			"Emerald",
+			"sapphire",
+			"Sapphire",
+			"sapphire",
+			"Sapphire",
+			"sapphire",
+			"Sapphire",
+			"Ubuntu_12",
+			"green",
+			"blue",
+			"unsigned",
+			"EXISTS"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ps3b.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16052,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3930,
+								3930
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2541.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "test_ps3.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1118,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								734,
+								734
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 321.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 298.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "pset3.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
