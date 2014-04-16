@@ -2,12 +2,19 @@
 
 import numpy
 import random
-import pylab
+#import pylab
 from ps3b import *
 
 #
 # PROBLEM 1
-#        
+#      
+def infect(numViruses, maxBirthProb, clearProb, resistances, mutProb):
+    viruses = []
+    for i in range(numViruses):
+        viruses.append(ResistantVirus(maxBirthProb, clearProb,\
+            resistances, mutProb))
+    return viruses
+
 def simulationDelayedTreatment(numTrials):
     """
     Runs simulations and make histograms for problem 1.
@@ -21,8 +28,41 @@ def simulationDelayedTreatment(numTrials):
 
     numTrials: number of simulation runs to execute (an integer)
     """
-    
-    # TODO
+    delay_list = [300, 150, 75, 0]
+    additional_steps = 150
+    stat_dict = {}
+
+    #predefined parameters
+    numViruses = 100
+    maxPop = 1000
+    maxBirthProb = 0.1
+    clearProb = 0.05
+    resistances = {'guttagonol': False}
+    mutProb = 0.005
+
+    for delay in delay_list:
+        steps = delay + additional_steps
+        virus_stats = [0 for x in range(steps)]
+        viruses = infect(numViruses, maxBirthProb, clearProb, resistances, mutProb)
+        stat_dict[delay] = []
+
+        for i in range(numTrials):
+            p = TreatedPatient(viruses, maxPop)
+            round = 0
+
+            while round < delay:
+                p.update()
+                round += 1
+
+            p.addPrescription('guttagonol')
+            while round < steps:
+                p.update()
+                round += 1
+
+            final_pop = p.getTotalPop()
+            stat_dict[delay].append(final_pop)
+
+    return stat_dict
 
 
 
