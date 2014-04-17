@@ -2,7 +2,7 @@
 
 import numpy
 import random
-#import pylab
+import pylab
 
 ''' 
 Begin helper code
@@ -508,7 +508,6 @@ def simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,
     processed_resist = [(resistant_virus[x] * 1.0) / numTrials for x in range(steps)]
     return processed_reg, processed_resist
 
-"""
     pylab.plot(processed_reg, label = 'Mean virus population')
     pylab.title('Mean virus population')
     pylab.xlabel('Elapsed time steps')
@@ -522,5 +521,3 @@ def simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,
     pylab.ylabel('Average size of the virus population in the patient')
     pylab.legend(loc = 'lower right')
     pylab.show()
-    """
-

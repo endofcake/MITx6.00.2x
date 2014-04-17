@@ -2,7 +2,7 @@
 
 import numpy
 import random
-#import pylab
+import pylab
 from ps3b import *
 
 #
@@ -45,6 +45,7 @@ def simulationDelayedTreatment(numTrials):
         virus_stats = [0 for x in range(steps)]
         viruses = infect(numViruses, maxBirthProb, clearProb, resistances, mutProb)
         stat_dict[delay] = []
+        result = []
 
         for i in range(numTrials):
             p = TreatedPatient(viruses, maxPop)
@@ -60,9 +61,20 @@ def simulationDelayedTreatment(numTrials):
                 round += 1
 
             final_pop = p.getTotalPop()
-            stat_dict[delay].append(final_pop)
+            result.append(final_pop)
+        print('Finished calculating delay ' + str(delay))
+        plot_histogram(result, delay)
 
-    return stat_dict
+def plot_histogram(data, delay):        
+    #data = pylab.array(data)
+    print(data)
+    pylab.hist(data, bins=51)
+    pylab.title('Mean virus population, delay ' + str(delay))
+    pylab.xlabel('Elapsed time steps')
+    pylab.ylabel('Average size of the virus population in the patient')
+    #pylab.legend(loc = 'lower right')
+    pylab.show()
+    #return stat_dict
 
 
 
