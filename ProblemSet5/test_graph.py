@@ -20,4 +20,6 @@ print e3
 g.addEdge(e1)
 g.addEdge(e2)
 g.addEdge(e3)
+print("Print WeightedDigraph")
 print g
+print g.childrenOf(na)

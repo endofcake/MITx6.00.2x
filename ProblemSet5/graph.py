@@ -33,21 +33,6 @@ class Edge(object):
     def __str__(self):
         return '{0}->{1}'.format(self.src, self.dest)
 
-class WeightedEdge(Edge):
-    def __init__(self, src, dest, total_distance, outdoor_distance):
-        Edge.__init__(self, src, dest)
-        self.total_distance = total_distance
-        self.outdoor_distance = outdoor_distance
-
-    def getTotalDistance(self):
-        return self.total_distance
-
-    def getOutdoorDistance(self):
-        return self.outdoor_distance
-
-    def __str__(self):
-        return '{0}->{1} ({2}, {3})'.format(self.src, self.dest, self.total_distance, self.outdoor_distance)
-
 class Digraph(object):
     """
     A directed graph
@@ -84,14 +69,44 @@ class Digraph(object):
                 res = '{0}{1}->{2}\n'.format(res, k, d)
         return res[:-1]
 
+class WeightedEdge(Edge):
+    def __init__(self, src, dest, total_distance, outdoor_distance):
+        Edge.__init__(self, src, dest)
+        self.total_distance = total_distance
+        self.outdoor_distance = outdoor_distance
+
+    def getTotalDistance(self):
+        return self.total_distance
+
+    def getOutdoorDistance(self):
+        return self.outdoor_distance
+
+    def __str__(self):
+        return '{0}->{1} ({2}, {3})'.format(self.src, self.dest, self.total_distance, self.outdoor_distance)
+
+
 class WeightedDigraph(Digraph):
     def __init__(self):
         Digraph.__init__(self)
 
+    def addEdge(self, edge):
+        src = edge.getSource()
+        dest = edge.getDestination()
+        if not(src in self.nodes and dest in self.nodes):
+            raise ValueError('Node not in graph')
+        self.edges[src].append(edge)
+
+    def childrenOf(self, node):
+        children = []
+        for edge in self.edges[node]:
+            children.append(edge.getDestination())
+        return children
+
     def __str__(self):
         res = ''
-        for k in self.edges:
-            for d in self.edges[str(k)]:
-                res = '{0}{1}->{2}\n'.format(res, k, d)
-        return res[:-1]
 
+        for k in self.edges:
+            for d in self.edges[k]:
+                res = '{0}{1}\n'.format(res,  d)
+        return res[:-1]
+        # return str(self.edges)
