@@ -1,0 +1,1039 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"outdo",
+				"outdoor"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"str",
+				"strip"
+			],
+			[
+				"site_",
+				"site_list"
+			],
+			[
+				"s",
+				"sitenames"
+			],
+			[
+				"si",
+				"sitename"
+			],
+			[
+				"sit",
+				"sitename"
+			],
+			[
+				"test",
+				"testdata"
+			],
+			[
+				"la",
+				"last_updated"
+			],
+			[
+				"site",
+				"sitedata"
+			],
+			[
+				"fi",
+				"filelist"
+			],
+			[
+				"W",
+				"WARNING"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"fo",
+				"found"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"data",
+				"database"
+			],
+			[
+				"lo",
+				"logging"
+			],
+			[
+				"last",
+				"last_updated"
+			],
+			[
+				"db",
+				"db_connect  (module)"
+			],
+			[
+				"el",
+				"elif"
+			],
+			[
+				"co",
+				"column"
+			],
+			[
+				"select",
+				"select_query"
+			],
+			[
+				"se",
+				"select_query"
+			],
+			[
+				"Re",
+				"result"
+			],
+			[
+				"prox",
+				"proxy_list"
+			],
+			[
+				"logs",
+				"logs_location"
+			],
+			[
+				"di",
+				"dir"
+			],
+			[
+				"in",
+				"insert_query"
+			],
+			[
+				"tr",
+				"traffic"
+			],
+			[
+				"sel",
+				"select_result"
+			],
+			[
+				"sle",
+				"select_result"
+			],
+			[
+				"get",
+				"get_site_id_for_update"
+			],
+			[
+				"st",
+				"stats_table"
+			],
+			[
+				"up",
+				"update_query"
+			],
+			[
+				"da",
+				"datetime"
+			],
+			[
+				"e",
+				"environment"
+			],
+			[
+				"p",
+				"parts"
+			],
+			[
+				"ba",
+				"batch_import_logs"
+			],
+			[
+				"pro",
+				"processed_proxy_logs"
+			],
+			[
+				"li",
+				"line"
+			],
+			[
+				"lis",
+				"listdir"
+			],
+			[
+				"director",
+				"directories"
+			],
+			[
+				"pare",
+				"parent_list"
+			],
+			[
+				"direc",
+				"directories"
+			],
+			[
+				"dir",
+				"dir_set"
+			],
+			[
+				"par",
+				"parent_list"
+			],
+			[
+				"so",
+				"sorted_list"
+			],
+			[
+				"tra",
+				"traffic_regex"
+			],
+			[
+				"proc",
+				"process_log"
+			],
+			[
+				"agg",
+				"aggregated_data"
+			],
+			[
+				"raw",
+				"raw_date"
+			],
+			[
+				"che",
+				"check_path"
+			],
+			[
+				"v",
+				"values"
+			],
+			[
+				"ro",
+				"rowcount"
+			],
+			[
+				"t",
+				"timestamp"
+			],
+			[
+				"ins",
+				"insert	function"
+			],
+			[
+				"cre",
+				"create_all	function"
+			],
+			[
+				"Me",
+				"MetaData	import"
+			],
+			[
+				"dest",
+				"dest_conn	statement"
+			],
+			[
+				"u",
+				"url"
+			],
+			[
+				"dbp",
+				"dbport	statement"
+			],
+			[
+				"va",
+				"vacuum_cost_limit	statement"
+			],
+			[
+				"ja",
+				"jade_start"
+			],
+			[
+				"am",
+				"amber_start"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "graph.py",
+			"settings":
+			{
+				"buffer_size": 2684,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mit_map.txt",
+			"settings":
+			{
+				"buffer_size": 1424,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ps5.py",
+			"settings":
+			{
+				"buffer_size": 8501,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test_graph.py",
+			"settings":
+			{
+				"buffer_size": 365,
+				"line_ending": "Unix",
+				"name": "from"
+			}
+		},
+		{
+			"file": "/home/alexanders/git/MITx6.00.2x/ProblemSet4/ps3b.py",
+			"settings":
+			{
+				"buffer_size": 18826,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python"
+			],
+			[
+				"nex",
+				"SublimeLint: Next Error"
+			],
+			[
+				"lin",
+				"SublimeLint: Next Error"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Anaconda: Enable linting on this file"
+			],
+			[
+				"linter",
+				"Anaconda: Next lint error"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"sn",
+				"Snippet: Create Schema"
+			],
+			[
+				"snip",
+				"Snippet: Create Table"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 222.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			"1+1",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/alexanders/git/MITx6.00.2x/ProblemSet5/PSet5.sublime-project",
+		"/home/alexanders/git/MITx6.00.2x/ProblemSet4/ps4.py",
+		"/home/alexanders/git/moodle-stats/bulk_rsync.sh",
+		"/home/alexanders/git/moodle-stats/testdata/complex-site-names.txt",
+		"/home/alexanders/.pgpass",
+		"/home/alexanders/git/moodle-stats/db_connect.py",
+		"/home/alexanders/Desktop/temp.css",
+		"/home/alexanders/git/moodle-stats/test_rrd_import.py",
+		"/home/alexanders/git/moodle-stats/testdata/test_stats.sql",
+		"/home/alexanders/git/moodle-stats/test_log_import.py",
+		"/home/alexanders/git/moodle-stats/rrd_import.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/alexanders/git/moodle-stats/log_import.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Python.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/alexanders/git/moodle-stats/test.py",
+		"/home/alexanders/git/moodle-stats/stash.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/alexanders/Desktop/py/soundex.py",
+		"/home/alexanders/git/moodle-stats/moodle_stats.py",
+		"/home/alexanders/container/tks/2014-04.tks",
+		"/home/alexanders/git/moodle-stats/test_db_connect.pu",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Pylinter.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Pylinter/Pylinter.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/SublimeREPL.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/home/alexanders/git/python-requests-test/bottle_test.py",
+		"/var/log/sitelogs/acckineo-prod-moodle/access.log-20140404",
+		"/home/alexanders/git/python-requests-test/matplotlib_test.py",
+		"/home/alexanders/git/moodle-stats/timestamp.py",
+		"/home/alexanders/container/tks/march31.txt",
+		"/home/alexanders/git/moodle-audit/Moodle/moodleaudit-receiver.pl",
+		"/home/alexanders/git/moodle-audit/Moodle/Output/YAMLMail.pm",
+		"/home/alexanders/git/moodle-audit/Moodle/audit.pl",
+		"/home/alexanders/git/moodle-audit/Moodle/Plugin/Logs.pm",
+		"/home/alexanders/git/moodle-stats/testdata/result.yaml",
+		"/home/alexanders/rrdtool/accordo.xml",
+		"/home/alexanders/git/moodle-stats/sql/site_environment.sql",
+		"/home/alexanders/git/moodle-stats/sql/cluster.sql",
+		"/home/alexanders/rrdtool/rrd-data/acc.xml",
+		"/home/alexanders/rrdtool/rrd-data/accordo.xml",
+		"/home/alexanders/rrdtool/acc.xml",
+		"/home/alexanders/rrdtool/accordo.totara.net.rrd",
+		"/home/alexanders/git/moodle-stats/moodle-stats.py",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Package Control.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/alexanders/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/alexanders/python/parse_logs_test.py",
+		"/home/alexanders/git/tango_with_django_project/rango/models.py",
+		"/home/alexanders/bin/install-depot-multisystem.sh",
+		"/var/lib/postgresql/scripts/postgres_vacuum.py",
+		"/home/alexanders/git/reveal.js/index.html",
+		"/home/alexanders/bin/deck.js-latest/boilerplate.html",
+		"/home/alexanders/.config/terminator/config",
+		"/home/alexanders/workbench/Pollster/polls/models.py",
+		"/home/alexanders/postgres/results.csv",
+		"/home/alexanders/bin/gems",
+		"/home/alexanders/postgres/results.txt",
+		"/home/alexanders/.ssh/config",
+		"/home/alexanders/bin/jewels",
+		"/home/alexanders/bin/colours",
+		"/home/alexanders/SQL/nf_create.sql",
+		"/home/alexanders/SQL/zzz.sql",
+		"/home/alexanders/.config/sublime-text-3/Packages/User/Distraction Free.sublime-settings",
+		"/home/alexanders/SQL/foo.sql"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			">>> ",
+			">>>",
+			">>> ",
+			"id",
+			"logging",
+			"cur_site_id",
+			"sitelogs",
+			"testdata",
+			"AA",
+			"stats",
+			"id",
+			"date",
+			"site_environment_table",
+			"get_last_updated_date",
+			"get_t",
+			"cur",
+			"test_complex_dicts",
+			"merge_dicts",
+			"print",
+			"get_all_dirs",
+			"cur_site_id",
+			"site_id",
+			"inser",
+			"st",
+			"extract_sitename",
+			"is_new_data",
+			"get_last_entry_date",
+			"#",
+			"site",
+			"site_environment",
+			"site",
+			"*",
+			"path",
+			"batch_import_logs",
+			"entry",
+			"dirlist",
+			"path",
+			"raw",
+			"file",
+			"data",
+			"dump",
+			"file",
+			"data",
+			"rrd_files",
+			"files",
+			"rrd_location",
+			"result",
+			"daily_stats_view",
+			"1364428800",
+			"acckineo-prod-moodle",
+			"get_credentials",
+			"none",
+			"credentials_list",
+			"dbhome",
+			"10000",
+			"3",
+			"\n:#",
+			"solarized",
+			"      [[",
+			"sapphire",
+			"diamond",
+			"ruby",
+			"sapphire_start",
+			"amber",
+			"sapphire",
+			"Emerald",
+			"sapphire",
+			"Sapphire",
+			"sapphire",
+			"Sapphire",
+			"sapphire",
+			"Sapphire",
+			"Ubuntu_12",
+			"green",
+			"blue",
+			"unsigned",
+			"EXISTS"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "graph.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1022,
+								1022
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "mit_map.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1424,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "ps5.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8501,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "test_graph.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 365,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								365,
+								365
+							]
+						],
+						"settings":
+						{
+							"auto_name": "from",
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/alexanders/git/MITx6.00.2x/ProblemSet4/ps3b.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 18826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7580,
+								7580
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4536.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 343.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "PSet5.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

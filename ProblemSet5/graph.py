@@ -33,6 +33,21 @@ class Edge(object):
     def __str__(self):
         return '{0}->{1}'.format(self.src, self.dest)
 
+class WeightedEdge(Edge):
+    def __init__(self, src, dest, total_distance, outdoor_distance):
+        Edge.__init__(self, src, dest)
+        self.total_distance = total_distance
+        self.outdoor_distance = outdoor_distance
+
+    def getTotalDistance(self):
+        return self.total_distance
+
+    def getOutdoorDistance(self):
+        return self.outdoor_distance
+
+    def __str__(self):
+        return '{0}->{1} ({2}, {3})'.format(self.src, self.dest, self.total_distance, self.outdoor_distance)
+
 class Digraph(object):
     """
     A directed graph
@@ -68,3 +83,15 @@ class Digraph(object):
             for d in self.edges[str(k)]:
                 res = '{0}{1}->{2}\n'.format(res, k, d)
         return res[:-1]
+
+class WeightedDigraph(Digraph):
+    def __init__(self):
+        Digraph.__init__(self)
+
+    def __str__(self):
+        res = ''
+        for k in self.edges:
+            for d in self.edges[str(k)]:
+                res = '{0}{1}->{2}\n'.format(res, k, d)
+        return res[:-1]
+

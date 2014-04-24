@@ -4,60 +4,12 @@
 		"selected_items":
 		[
 			[
-				"pro",
-				"processed_resist"
-			],
-			[
-				"proc",
-				"processed_reg"
+				"mut",
+				"mut_chance"
 			],
 			[
 				"re",
-				"result"
-			],
-			[
-				"ge",
-				"getResistPop"
-			],
-			[
-				"repr",
-				"reproduction_chance"
-			],
-			[
-				"get",
-				"getPrescriptions"
-			],
-			[
-				"add",
-				"addPrescription"
-			],
-			[
-				"dr",
-				"drugResist"
-			],
-			[
-				"vi",
-				"viruses"
-			],
-			[
-				"new",
-				"newDrug"
-			],
-			[
-				"s",
-				"self"
-			],
-			[
-				"__",
-				"__init__"
-			],
-			[
-				"is",
-				"is_resistant"
-			],
-			[
-				"mut",
-				"mut_chance"
+				"resistances"
 			],
 			[
 				"def",
@@ -104,6 +56,10 @@
 				"batch_import_logs"
 			],
 			[
+				"pro",
+				"processed_proxy_logs"
+			],
+			[
 				"li",
 				"line"
 			],
@@ -140,6 +96,10 @@
 				"traffic_regex"
 			],
 			[
+				"proc",
+				"process_log"
+			],
+			[
 				"agg",
 				"aggregated_data"
 			],
@@ -170,6 +130,10 @@
 			[
 				"lo",
 				"logdate"
+			],
+			[
+				"s",
+				"strftime  (function)"
 			],
 			[
 				"t",
@@ -216,6 +180,10 @@
 				"connection_string	statement"
 			],
 			[
+				"get",
+				"get_credentials	function"
+			],
+			[
 				"va",
 				"vacuum_cost_limit	statement"
 			],
@@ -231,50 +199,15 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "# Problem Set 3: Simulating the Spread of Disease and Virus Population Dynamics \n\nimport numpy\nimport random\n#import pylab\n\n''' \nBegin helper code\n'''\n\nclass NoChildException(Exception):\n    \"\"\"\n    NoChildException is raised by the reproduce() method in the SimpleVirus\n    and ResistantVirus classes to indicate that a virus particle does not\n    reproduce. You can use NoChildException as is, you do not need to\n    modify/add any code.\n    \"\"\"\n\n'''\nEnd helper code\n'''\n\n#\n# PROBLEM 2\n#\nclass SimpleVirus(object):\n\n    \"\"\"\n    Representation of a simple virus (does not model drug effects/resistance).\n    \"\"\"\n    def __init__(self, maxBirthProb, clearProb):\n        \"\"\"\n        Initialize a SimpleVirus instance, saves all parameters as attributes\n        of the instance.        \n        maxBirthProb: Maximum reproduction probability (a float between 0-1)        \n        clearProb: Maximum clearance probability (a float between 0-1).\n        \"\"\"\n        self.maxBirthProb = maxBirthProb\n        self.clearProb = clearProb\n        #random.seed(1)\n\n    def getMaxBirthProb(self):\n        \"\"\"\n        Returns the max birth probability.\n        \"\"\"\n        return self.maxBirthProb\n\n    def getClearProb(self):\n        \"\"\"\n        Returns the clear probability.\n        \"\"\"\n        return self.clearProb\n\n    def doesClear(self):\n        \"\"\" Stochastically determines whether this virus particle is cleared from the\n        patient's body at a time step. \n        returns: True with probability self.getClearProb and otherwise returns\n        False.\n        \"\"\"\n        chance = random.random()\n        return chance < self.clearProb\n\n    def reproduce(self, popDensity):\n        \"\"\"\n        Stochastically determines whether this virus particle reproduces at a\n        time step. Called by the update() method in the Patient and\n        TreatedPatient classes. The virus particle reproduces with probability\n        self.maxBirthProb * (1 - popDensity).\n       \n        If this virus particle reproduces, then reproduce() creates and returns\n        the instance of the offspring SimpleVirus (which has the same\n        maxBirthProb and clearProb values as its parent).         \n\n        popDensity: the population density (a float), defined as the current\n        virus population divided by the maximum population.         \n        \n        returns: a new instance of the SimpleVirus class representing the\n        offspring of this virus particle. The child should have the same\n        maxBirthProb and clearProb values as this virus. Raises a\n        NoChildException if this virus particle does not reproduce.               \n        \"\"\"        \n        chance = random.random()\n        assert popDensity <= 1\n\n        if chance < self.maxBirthProb * (1 - popDensity):\n            return SimpleVirus(self.maxBirthProb, self.clearProb)\n        else:\n            raise NoChildException\n\n\n\nclass Patient(object):\n    \"\"\"\n    Representation of a simplified patient. The patient does not take any drugs\n    and his/her virus populations have no drug resistance.\n    \"\"\"    \n\n    def __init__(self, viruses, maxPop):\n        \"\"\"\n        Initialization function, saves the viruses and maxPop parameters as\n        attributes.\n\n        viruses: the list representing the virus population (a list of\n        SimpleVirus instances)\n\n        maxPop: the maximum virus population for this patient (an integer)\n        \"\"\"\n        self.viruses = viruses\n        self.maxPop = maxPop\n\n    def getViruses(self):\n        \"\"\"\n        Returns the viruses in this Patient.\n        \"\"\"\n        return self.viruses\n\n\n    def getMaxPop(self):\n        \"\"\"\n        Returns the max population.\n        \"\"\"\n        return self.maxPop\n\n\n    def getTotalPop(self):\n        \"\"\"\n        Gets the size of the current total virus population. \n        returns: The total virus population (an integer)\n        \"\"\"\n        return len(self.viruses)      \n\n\n    def update(self):\n        \"\"\"\n        Update the state of the virus population in this patient for a single\n        time step. update() should execute the following steps in this order:\n        \n        - Determine whether each virus particle survives and updates the list\n        of virus particles accordingly.   \n        \n        - The current population density is calculated. This population density\n          value is used until the next call to update() \n        \n        - Based on this value of population density, determine whether each \n          virus particle should reproduce and add offspring virus particles to \n          the list of viruses in this patient.                    \n\n        returns: The total virus population at the end of the update (an\n        integer)\n        \"\"\"\n        def reproduction_chance():\n            return (self.getTotalPop() * 1.0)/ self.getMaxPop()\n        \n        virii = self.viruses[:] # helper\n        for vir in self.viruses:\n            if vir.doesClear():\n                virii.remove(vir)\n\n        self.viruses = virii[:]\n        for vir in virii:\n            try:\n                self.viruses.append(vir.reproduce(reproduction_chance()))\n            except NoChildException, e:\n                pass\n\n#\n# PROBLEM 3\n#\ndef simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,\n                          numTrials):\n    \"\"\"\n    Run the simulation and plot the graph for problem 3 (no drugs are used,\n    viruses do not have any drug resistance).    \n    For each of numTrials trial, instantiates a patient, runs a simulation\n    for 300 timesteps, and plots the average virus population size as a\n    function of time.\n\n    numViruses: number of SimpleVirus to create for patient (an integer)\n    maxPop: maximum virus population for patient (an integer)\n    maxBirthProb: Maximum reproduction probability (a float between 0-1)        \n    clearProb: Maximum clearance probability (a float between 0-1)\n    numTrials: number of simulation runs to execute (an integer)\n    \"\"\"\n    steps = 300\n    reg_virus = [0 for x in range(steps)]\n    def infect(numViruses, maxBirthProb, clearProb):\n        viruses = []\n        for i in range(numViruses):\n            viruses.append(SimpleVirus(maxBirthProb, clearProb))\n        return viruses\n\n    for i in range(numTrials):\n        p = Patient(infect(numViruses, maxBirthProb, clearProb), maxPop)\n        round = 0\n\n        while round < steps:\n            p.update()\n            reg_virus[round] += p.getTotalPop()\n            round += 1\n\n    processed = [reg_virus[x] / numTrials for x in range(steps)]\n    print(processed)\n    pylab.plot(processed, label = 'Mean virus population')\n    pylab.title('Mean virus population')\n    pylab.xlabel('Elapsed time steps')\n    pylab.ylabel('Average size of the virus population in the patient')\n    pylab.legend(loc = 'lower right')\n    pylab.show()\n\n\n\n#\n# PROBLEM 4\n#\nclass ResistantVirus(SimpleVirus):\n    \"\"\"\n    Representation of a virus which can have drug resistance.\n    \"\"\"   \n\n    def __init__(self, maxBirthProb, clearProb, resistances, mutProb):\n        \"\"\"\n        Initialize a ResistantVirus instance, saves all parameters as attributes\n        of the instance.\n\n        maxBirthProb: Maximum reproduction probability (a float between 0-1)       \n\n        clearProb: Maximum clearance probability (a float between 0-1).\n\n        resistances: A dictionary of drug names (strings) mapping to the state\n        of this virus particle's resistance (either True or False) to each drug.\n        e.g. {'guttagonol':False, 'srinol':False}, means that this virus\n        particle is resistant to neither guttagonol nor srinol.\n\n        mutProb: Mutation probability for this virus particle (a float). This is\n        the probability of the offspring acquiring or losing resistance to a drug.\n        \"\"\"\n        SimpleVirus.__init__(self, maxBirthProb, clearProb)\n        self.resistances = resistances\n        self.mutProb = mutProb\n\n\n    def getResistances(self):\n        \"\"\"\n        Returns the resistances for this virus.\n        \"\"\"\n        return self.resistances\n\n    def getMutProb(self):\n        \"\"\"\n        Returns the mutation probability for this virus.\n        \"\"\"\n        return self.mutProb\n\n    def isResistantTo(self, drug):\n        \"\"\"\n        Get the state of this virus particle's resistance to a drug. This method\n        is called by getResistPop() in TreatedPatient to determine how many virus\n        particles have resistance to a drug.       \n\n        drug: The drug (a string)\n\n        returns: True if this virus instance is resistant to the drug, False\n        otherwise.\n        \"\"\"\n        return self.resistances.get(drug, False)\n\n\n    def reproduce(self, popDensity, activeDrugs):\n        \"\"\"\n        Stochastically determines whether this virus particle reproduces at a\n        time step. Called by the update() method in the TreatedPatient class.\n\n        A virus particle will only reproduce if it is resistant to ALL the drugs\n        in the activeDrugs list. For example, if there are 2 drugs in the\n        activeDrugs list, and the virus particle is resistant to 1 or no drugs,\n        then it will NOT reproduce.\n\n        Hence, if the virus is resistant to all drugs\n        in activeDrugs, then the virus reproduces with probability:      \n\n        self.maxBirthProb * (1 - popDensity).                       \n\n        If this virus particle reproduces, then reproduce() creates and returns\n        the instance of the offspring ResistantVirus (which has the same\n        maxBirthProb and clearProb values as its parent). The offspring virus\n        will have the same maxBirthProb, clearProb, and mutProb as the parent.\n\n        For each drug resistance trait of the virus (i.e. each key of\n        self.resistances), the offspring has probability 1-mutProb of\n        inheriting that resistance trait from the parent, and probability\n        mutProb of switching that resistance trait in the offspring.       \n\n        For example, if a virus particle is resistant to guttagonol but not\n        srinol, and self.mutProb is 0.1, then there is a 10% chance that\n        that the offspring will lose resistance to guttagonol and a 90%\n        chance that the offspring will be resistant to guttagonol.\n        There is also a 10% chance that the offspring will gain resistance to\n        srinol and a 90% chance that the offspring will not be resistant to\n        srinol.\n\n        popDensity: the population density (a float), defined as the current\n        virus population divided by the maximum population       \n\n        activeDrugs: a list of the drug names acting on this virus particle\n        (a list of strings).\n\n        returns: a new instance of the ResistantVirus class representing the\n        offspring of this virus particle. The child should have the same\n        maxBirthProb and clearProb values as this virus. Raises a\n        NoChildException if this virus particle does not reproduce.\n        \"\"\"\n        assert popDensity <= 1\n        chance = random.random()\n\n        def define_resistance(activeDrugs):      \n            for drug in activeDrugs:\n                if not self.isResistantTo(drug):\n                    return False\n            return True\n\n        def mutate(resistances, mutProb):\n            mutation = {}\n\n            for drug in resistances:\n                mut_chance = random.random()\n                if resistances[drug] == True:\n                    if mut_chance <= (1 - mutProb):\n                        mutation[drug] = self.resistances[drug]\n                    else:\n                        mutation[drug] = not self.resistances[drug]\n                else:\n                    if mut_chance < mutProb:\n                        mutation[drug] = not self.resistances[drug]\n                    else:\n                        mutation[drug] = self.resistances[drug]\n            return mutation            \n\n        is_resistant = define_resistance(activeDrugs)\n\n        if is_resistant and chance < self.maxBirthProb * (1 - popDensity):\n            return ResistantVirus(\\\n                maxBirthProb = self.maxBirthProb,\\\n                clearProb = self.clearProb,\\\n                resistances = mutate(self.getResistances(), self.getMutProb()),\\\n                mutProb = self.getMutProb())\n        else:\n            raise NoChildException\n\n            \n\nclass TreatedPatient(Patient):\n    \"\"\"\n    Representation of a patient. The patient is able to take drugs and his/her\n    virus population can acquire resistance to the drugs he/she takes.\n    \"\"\"\n\n    def __init__(self, viruses, maxPop):\n        \"\"\"\n        Initialization function, saves the viruses and maxPop parameters as\n        attributes. Also initializes the list of drugs being administered\n        (which should initially include no drugs).              \n\n        viruses: The list representing the virus population (a list of\n        virus instances)\n\n        maxPop: The  maximum virus population for this patient (an integer)\n        \"\"\"\n        Patient.__init__(self, viruses, maxPop)\n        self.drugs = []\n\n    def addPrescription(self, newDrug):\n        \"\"\"\n        Administer a drug to this patient. After a prescription is added, the\n        drug acts on the virus population for all subsequent time steps. If the\n        newDrug is already prescribed to this patient, the method has no effect.\n\n        newDrug: The name of the drug to administer to the patient (a string).\n\n        postcondition: The list of drugs being administered to a patient is updated\n        \"\"\"\n        if newDrug not in self.drugs:\n            self.drugs.append(newDrug)\n\n    def getPrescriptions(self):\n        \"\"\"\n        Returns the drugs that are being administered to this patient.\n\n        returns: The list of drug names (strings) being administered to this\n        patient.\n        \"\"\"\n        return self.drugs[:]\n\n    def getResistPop(self, drugResist):\n        \"\"\"\n        Get the population of virus particles resistant to the drugs listed in\n        drugResist.       \n\n        drugResist: Which drug resistances to include in the population (a list\n        of strings - e.g. ['guttagonol'] or ['guttagonol', 'srinol'])\n\n        returns: The population of viruses (an integer) with resistances to all\n        drugs in the drugResist list.\n        \"\"\"\n        count = 0\n        for virus in self.viruses:\n            resistant = True\n            for drug in drugResist:\n                if not virus.isResistantTo(drug):\n                    resistant = False\n                    break\n\n            if resistant:\n                count += 1\n        return count\n\n    def update(self):\n        \"\"\"\n        Update the state of the virus population in this patient for a single\n        time step. update() should execute these actions in order:\n\n        - Determine whether each virus particle survives and update the list of\n          virus particles accordingly\n\n        - The current population density is calculated. This population density\n          value is used until the next call to update().\n\n        - Based on this value of population density, determine whether each \n          virus particle should reproduce and add offspring virus particles to \n          the list of viruses in this patient.\n          The list of drugs being administered should be accounted for in the\n          determination of whether each virus particle reproduces.\n\n        returns: The total virus population at the end of the update (an\n        integer)\n        \"\"\"\n        def reproduction_chance():\n            return (self.getTotalPop() * 1.0)/ self.getMaxPop()\n        \n        virii = self.viruses[:] # helper\n        for vir in self.viruses:\n            if vir.doesClear():\n                virii.remove(vir)\n\n        self.viruses = virii[:]\n        for vir in virii:\n            try:\n                self.viruses.append(\\\n                    vir.reproduce(reproduction_chance(), self.getPrescriptions()))\n            except NoChildException, e:\n                pass\n        return self.getTotalPop()\n#\n# PROBLEM 5\n#\ndef simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,\n                       mutProb, numTrials):\n    \"\"\"\n    Runs simulations and plots graphs for problem 5.\n\n    For each of numTrials trials, instantiates a patient, runs a simulation for\n    150 timesteps, adds guttagonol, and runs the simulation for an additional\n    150 timesteps.  At the end plots the average virus population size\n    (for both the total virus population and the guttagonol-resistant virus\n    population) as a function of time.\n\n    numViruses: number of ResistantVirus to create for patient (an integer)\n    maxPop: maximum virus population for patient (an integer)\n    maxBirthProb: Maximum reproduction probability (a float between 0-1)        \n    clearProb: maximum clearance probability (a float between 0-1)\n    resistances: a dictionary of drugs that each ResistantVirus is resistant to\n                 (e.g., {'guttagonol': False})\n    mutProb: mutation probability for each ResistantVirus particle\n             (a float between 0-1). \n    numTrials: number of simulation runs to execute (an integer)\n    \n    \"\"\"\n\n    steps = 300\n    reg_virus = [0 for x in range(steps)]\n    resistant_virus = [0 for x in range(steps)]\n\n    def infect(numViruses, maxBirthProb, clearProb, resistances, mutProb):\n        viruses = []\n        for i in range(numViruses):\n            viruses.append(ResistantVirus(maxBirthProb, clearProb,\\\n                resistances, mutProb))\n        return viruses\n\n    for i in range(numTrials):\n        p = TreatedPatient(infect(\\\n            numViruses, maxBirthProb, clearProb, resistances, mutProb\\\n            ), maxPop)\n        round = 0\n\n        while round < steps / 2:\n            p.update()\n            reg_virus[round] += p.getTotalPop()\n            resistant_virus[round] += p.getResistPop(['guttagonol'])\n            round += 1\n\n        # add prescription and repeat\n        p.addPrescription('guttagonol')\n        while round < steps:\n            p.update()\n            reg_virus[round] += p.getTotalPop()\n            resistant_virus[round] += p.getResistPop(['guttagonol'])\n            round += 1\n\n    processed_reg = [reg_virus[x]  * 1.0/ numTrials for x in range(steps)]\n    processed_resist = [(resistant_virus[x] * 1.0) / numTrials for x in range(steps)]\n    #return processed_reg, processed_resist\n\n    pylab.plot(processed_reg, label = 'Mean virus population')\n    pylab.plot(processed_resist, label = 'ResistantVirus simulation')\n    pylab.title('Mean virus population')\n    pylab.xlabel('Elapsed time steps')\n    pylab.ylabel('Average size of the virus population in the patient')\n    pylab.legend(loc = 'lower right')\n    pylab.show()",
-			"file": "ps3b.py",
-			"file_size": 18840,
-			"file_write_time": 130417312600000000,
-			"settings":
-			{
-				"buffer_size": 18740,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test_ps3.py",
-			"settings":
-			{
-				"buffer_size": 2124,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/A/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 121,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 380.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"in",
-				"Package Control: Install Package"
-			],
-			[
 				"ins",
-				"Package Control: Install Package"
-			],
-			[
-				"inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -284,6 +217,10 @@
 			[
 				"remo",
 				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
 			],
 			[
 				"packa",
@@ -300,6 +237,10 @@
 			[
 				"lin",
 				"SublimeLint: Next Error"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
 			],
 			[
 				"",
@@ -337,7 +278,6 @@
 		"height": 222.0,
 		"history":
 		[
-			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
 			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
 			"1+1",
 			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
@@ -354,6 +294,8 @@
 	},
 	"file_history":
 	[
+		"/home/alexanders/git/MITx6.00.2x/ProblemSet3/test_ps3.py",
+		"/home/alexanders/git/MITx6.00.2x/ProblemSet3/ps3b.py",
 		"/home/alexanders/container/tks/2014-04.tks",
 		"/home/alexanders/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
 		"/home/alexanders/.config/sublime-text-3/Packages/User/SublimeLinter.sublime-settings",
@@ -411,7 +353,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -425,7 +367,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"results",
 			"site",
 			"site_environment",
 			"site",
@@ -492,101 +433,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "ps3b.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18740,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18740,
-								16049
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 9252.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "test_ps3.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2124,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1990,
-								1990
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 897.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/Users/A/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 121,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 29.0
 	},
 	"input":
 	{
@@ -617,7 +471,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 230.0
+		"height": 298.0
 	},
 	"output.find_results":
 	{
@@ -626,7 +480,7 @@
 	"project": "pset3.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
