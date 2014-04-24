@@ -37,6 +37,30 @@ def load_map(mapFilename):
     """
     # TODO
     print "Loading map from file..."
+    f = open(mapFilename)
+    graph = WeightedDigraph()
+
+    for line in f:
+        values_list = line.split()
+        try:
+            graph.addNode(values_list[0])
+        except:
+            pass # that's expected
+
+        try:
+            graph.addNode(values_list[1])
+        except:
+            pass # that's expected
+
+        edge = WeightedEdge(values_list[0], values_list[1],\
+            values_list[2], values_list[3])
+        
+        try:
+            graph.addEdge(edge)
+        except ValueError as err:
+            pass
+
+    return graph
         
 
 #
