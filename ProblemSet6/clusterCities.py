@@ -1,5 +1,6 @@
 #Code shared across examples
-import pylab, string
+# import pylab
+import string
 
 def stdDev(X):
     mean = sum(X)/float(len(X))
@@ -52,22 +53,37 @@ class Cluster(object):
         are closest to each other, where one point is from 
         self and the other point is from other. Uses the 
         Euclidean dist between 2 points, defined in Point."""
-        # TO DO
-        pass
+        # sys.maxint without importing sys for grading purposes
+        min_distance = 9223372036854775807 
+        for point_outer in self.points:
+            for point_inner in other.points:
+                if Point.distance(point_outer, point_inner) < min_distance:
+                    min_distance = Point.distance(point_outer, point_inner)
+        return min_distance
+    
     def maxLinkageDist(self, other):
         """ Returns the float distance between the points that 
         are farthest from each other, where one point is from 
         self and the other point is from other. Uses the 
         Euclidean dist between 2 points, defined in Point."""
-        # TO DO
-        pass
+        max_distance = 0 
+        for point_outer in self.points:
+            for point_inner in other.points:
+                if Point.distance(point_outer, point_inner) > max_distance:
+                    max_distance = Point.distance(point_outer, point_inner)
+        return max_distance
+
     def averageLinkageDist(self, other):
         """ Returns the float average (mean) distance between all 
         pairs of points, where one point is from self and the 
         other point is from other. Uses the Euclidean dist 
         between 2 points, defined in Point."""
-        # TO DO
-        pass
+        sum_distance = 0 
+        for point_outer in self.points:
+            for point_inner in other.points:
+                sum_distance += Point.distance(point_outer, point_inner)
+        return sum_distance / (len(self.points) * len(other.points))
+
     def members(self):
         for p in self.points:
             yield p
