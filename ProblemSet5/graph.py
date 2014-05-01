@@ -102,6 +102,14 @@ class WeightedDigraph(Digraph):
             children.append(edge.getDestination())
         return children
 
+    # def get_edges(self):
+    #     result = {}
+    #     for node in self.nodes:
+            
+    #         for edge in self.edges[node]:
+    #         result[node] = str(self.edges[node])
+    #     return result
+
     def __str__(self):
         res = ''
 

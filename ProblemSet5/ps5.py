@@ -44,12 +44,12 @@ def load_map(mapFilename):
         values_list = line.split()
         try:
             graph.addNode(values_list[0])
-        except:
+        except ValueError:
             pass # that's expected
 
         try:
             graph.addNode(values_list[1])
-        except:
+        except ValueError:
             pass # that's expected
 
         edge = WeightedEdge(values_list[0], values_list[1],\
@@ -59,7 +59,7 @@ def load_map(mapFilename):
             graph.addEdge(edge)
         except ValueError as err:
             pass
-
+    f.close()
     return graph
         
 
@@ -95,7 +95,19 @@ def bruteForceSearch(digraph, start, end, maxTotalDist, maxDistOutdoors):
         maxDistOutdoors constraints, then raises a ValueError.
     """
     #TODO
-    pass
+    #assumes graph is a Digraph
+    #assumes start and end are nodes in graph
+    path = path + [start]
+    print 'Current dfs path:', printPath(path)
+    if start == end:
+        return path
+    for node in graph.childrenOf(start):
+        if node not in path: #avoid cycles
+            if shortest == None or len(path)<len(shortest):
+                newPath = bruteForceSearch(graph,node,end,path,shortest)
+                if newPath != None:
+                    shortest = newPath
+    return shortest§
 
 #
 # Problem 4: Finding the Shorest Path using Optimized Search Method
