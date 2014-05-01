@@ -1,5 +1,5 @@
 #Code shared across examples
-# import pylab
+import pylab
 import string
 
 def stdDev(X):
@@ -131,14 +131,31 @@ class ClusterSet(object):
         """ Assumes clusters c1 and c2 are in self
         Adds to self a cluster containing the union of c1 and c2
         and removes c1 and c2 from self """
-        # TO DO
-        pass
+        merged_cluster = c1[:]
+        for point in c2:
+            if point not in merged_cluster:
+                merged_cluster.append(point)
+            else:
+                pass
+
+        self.members.remove(c1)
+        self.members.remove(c2)
+        self.members.append(merged_cluster)
+
     def findClosest(self, linkage):
         """ Returns a tuple containing the two most similar 
         clusters in self
         Closest defined using the metric linkage """
-        # TO DO
-        pass
+        closest = ()
+        closest_dist = 9223372036854775807
+
+        for point_outer in self.points:
+            for point_inner in other.points:
+                if linkage(point_outer, point_inner) < closest_dist:
+                    closest_dist = linkage(point_outer, point_inner)
+                    closest = (point_outer, point_inner)
+        return closest
+
     def mergeOne(self, linkage):
         """ Merges the two most simililar clusters in self
         Similar defined using the metric linkage
@@ -242,6 +259,6 @@ def test():
     #hCluster(points, Cluster.averageLinkageDist, 10, False)
     #hCluster(points, Cluster.singleLinkageDist, 10, False)
 
-#test()
+test()
 
 
